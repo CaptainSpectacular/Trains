@@ -4,7 +4,6 @@
 #include <algorithm>
 #include "node.h"
 
-
 using std::vector;
 using std::string;
 using std::cout;
@@ -31,7 +30,6 @@ void Graph::new_route(string route)
 	if (!node_exists(n1))
 		insert_node(n1);
 
-
 	if (!node_exists(n2))
 		insert_node(n2);
 }
@@ -40,9 +38,7 @@ bool Graph::node_exists(char data)
 {
 	vector<char> raw_values;
 	for (size_t i = 0; i < nodes.size(); i++)
-	{
 		raw_values.push_back(nodes[i].data);
-	}
 
 	return (find(raw_values.begin(), raw_values.end(), data) != raw_values.end());
 }
