@@ -14,5 +14,6 @@ public:
 	void new_route(string route);
 
 private:
+	void insert_node(char data);
 	bool node_exists(char data);
 };

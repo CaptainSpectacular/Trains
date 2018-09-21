@@ -16,7 +16,6 @@ int main()
 	string routes[8] = { "AB9", "BC6", "CD3", "DA4", "DE7", "EB6", "EA7", "CB5" };
 	Graph *g = new Graph();
 
-	cout << "Successfully built graph." << endl;
 	cout << "Inserting routes..." << endl;
 	
 	for (int i = 0; i < 8; i++)
@@ -25,5 +24,6 @@ int main()
 		cout << "Route " << routes[i] << " created..." << endl;
 	}
 
+	cout << "Graph build successful." << endl;
 	cin.get();
 }

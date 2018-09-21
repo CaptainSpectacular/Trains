@@ -18,6 +18,7 @@ public:
 	void new_route(string route);
 
 private:
+	void insert_node(char data);
 	bool node_exists(char data);
 };
 
@@ -25,21 +26,14 @@ void Graph::new_route(string route)
 {
 	char n1 = route[0];
 	char n2 = route[1];
-	// char dist = route[2.. - 1];
+	int  dist = stoi(route.substr(2, route.length())); // from index 2..-1 is the distance.
 
 	if (!node_exists(n1))
-	{
-		Node* n = new Node(n1);
-		nodes.push_back(*n);
-		free(n);
-	}
+		insert_node(n1);
+
 
 	if (!node_exists(n2))
-	{
-		Node* n = new Node(n2);
-		nodes.push_back(*n);
-		free(n);
-	}
+		insert_node(n2);
 }
 
 bool Graph::node_exists(char data)
@@ -51,4 +45,11 @@ bool Graph::node_exists(char data)
 	}
 
 	return (find(raw_values.begin(), raw_values.end(), data) != raw_values.end());
+}
+
+void Graph::insert_node(char data)
+{
+	Node *n = new Node(data);
+	nodes.push_back(*n);
+	free(n);
 }
