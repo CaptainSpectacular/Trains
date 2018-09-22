@@ -17,8 +17,8 @@ public:
 	void new_route(string route);
 
 private:
-	void insert_node(char data);
-	bool node_exists(char data);
+	Node* insert_node(char data);
+	Node* node_exists(char data);
 };
 
 void Graph::new_route(string route)
@@ -27,25 +27,40 @@ void Graph::new_route(string route)
 	char n2 = route[1];
 	int  dist = stoi(route.substr(2, route.length())); // from index 2..-1 is the distance.
 
-	if (!node_exists(n1))
-		insert_node(n1);
+	Node* origin = insert_node(n1); 
+	Node* destination = insert_node(n2); // In the second route insertion
+										 // this modifies the value of 
+										 // origin to have data equal to
+										 // (-35) 'Y', which leads to
+										 // undefined behavior.
 
-	if (!node_exists(n2))
-		insert_node(n2);
+	origin->insert_edge(dist, destination);
 }
 
-bool Graph::node_exists(char data)
+Node* Graph::node_exists(char data)
 {
-	vector<char> raw_values;
+	Node* node = nullptr;
 	for (size_t i = 0; i < nodes.size(); i++)
-		raw_values.push_back(nodes[i].data);
+	{
+		if (nodes[i].data == data)
+		{
+			node = &nodes[i];
+			break;
+		}
+	}
 
-	return (find(raw_values.begin(), raw_values.end(), data) != raw_values.end());
+	return node;
 }
 
-void Graph::insert_node(char data)
+Node* Graph::insert_node(char data)
 {
-	Node *n = new Node(data);
-	nodes.push_back(*n);
-	free(n);
+	Node* node = node_exists(data);
+
+	if (!node)
+	{
+		node = new Node(data);
+		nodes.push_back(*node);
+	}
+
+	return node;
 }
