@@ -25,5 +25,13 @@ int main()
 	}
 
 	cout << "Graph build successful." << endl;
+
+	for (size_t i = 0; i < g->nodes.size(); i++)
+	{
+		g->nodes[i].print_edges();
+	}
+
+
+	cout << "Total Nodes: " << g->nodes.size() << endl;
 	cin.get();
 }
