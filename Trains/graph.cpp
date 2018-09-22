@@ -25,14 +25,16 @@ void Graph::new_route(string route)
 {
 	char n1 = route[0];
 	char n2 = route[1];
-	int  dist = stoi(route.substr(2, route.length())); // from index 2..-1 is the distance.
+	int  dist = stoi(route.substr(2, route.length()));
 
 	Node* origin = insert_node(n1); 
-	Node* destination = insert_node(n2); // In the second route insertion
-										 // this modifies the value of 
-										 // origin to have data equal to
-										 // (-35) 'Y', which leads to
-										 // undefined behavior.
+	Node* destination = insert_node(n2);
+
+	// Why does this happen?
+	if (origin->data == -35)
+	{
+		origin = insert_node(n1);
+	}
 
 	origin->insert_edge(dist, destination);
 }
