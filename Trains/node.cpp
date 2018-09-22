@@ -5,6 +5,8 @@
 
 using std::vector;
 using std::find;
+using std::cout;
+using std::endl;
 
 class Node
 {
@@ -13,7 +15,8 @@ public:
 	char data;
 
 	Node(char data);
-	void newEdge(int distance, Node* destination);
+	void insert_edge(int distance, Node* destination);
+	void print_edges();
 };
 
 Node::Node(char data)
@@ -21,17 +24,33 @@ Node::Node(char data)
 	this->data = data;
 }
 
-void Node::newEdge(int distance, Node* destination)
+void Node::insert_edge(int distance, Node* destination)
 {
-	Edge* e = new Edge(distance, destination);
-	vector<char> values;
+	Edge* e = nullptr;
 	for (size_t i = 0; i < edges.size(); i++)
 	{
-		Edge temp = edges[i];
-		values.push_back(temp.destination->data);
+		if (edges[i].destination->data == destination->data)
+		{ 
+			e = &edges[i];
+			break;
+		}
 	}
-	if (find(values.begin(), values.end(), destination->data) != values.end())
+	if (e == nullptr)
+	{
+		e = new Edge(distance, destination);
 		edges.push_back(*e);
+	}
+}
 
+void Node::print_edges()
+{
+	cout << "Node[" << data << "]: ";
+
+	for (size_t i = 0; i < edges.size(); i++)
+	{
+		cout << edges[i].destination->data;
+	}
+
+	cout << endl;
 }
 

@@ -9,4 +9,6 @@ public:
 	char data;
 
 	Node(char data);
+	void insert_edge(int distance, Node* destination);
+	void print_edges();
 };
