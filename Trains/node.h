@@ -11,4 +11,5 @@ public:
 	Node(char data);
 	void insert_edge(int distance, Node* destination);
 	void print_edges();
+	Edge* has_edge(char data);
 };

@@ -17,6 +17,7 @@ public:
 	Node(char data);
 	void insert_edge(int distance, Node* destination);
 	void print_edges();
+	Edge* has_edge(char data);
 };
 
 Node::Node(char data)
@@ -26,20 +27,21 @@ Node::Node(char data)
 
 void Node::insert_edge(int distance, Node* destination)
 {
-	Edge* e = nullptr;
+	// Something here must be bad design. As edges get added,
+	// it seems old edges get corrupted as seen when they are
+	// printed out.
+	Edge* e = new Edge(distance, destination);
+	edges.push_back(*e);
+}
+
+Edge* Node::has_edge(char data)
+{
 	for (size_t i = 0; i < edges.size(); i++)
 	{
-		if (edges[i].destination->data == destination->data)
-		{ 
-			e = &edges[i];
-			break;
-		}
+		if (edges[i].destination->data == data)
+			return &edges[i];
 	}
-	if (e == nullptr)
-	{
-		e = new Edge(distance, destination);
-		edges.push_back(*e);
-	}
+	return nullptr;
 }
 
 void Node::print_edges()
@@ -47,9 +49,7 @@ void Node::print_edges()
 	cout << "Node[" << data << "]: ";
 
 	for (size_t i = 0; i < edges.size(); i++)
-	{
 		cout << edges[i].destination->data;
-	}
 
 	cout << endl;
 }
