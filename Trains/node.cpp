@@ -30,6 +30,10 @@ void Node::insert_edge(int distance, Node* destination)
 	// Something here must be bad design. As edges get added,
 	// it seems old edges get corrupted as seen when they are
 	// printed out.
+	
+	// I would do edges.push_back(e) and make edges a vector<Edge *>. This should solve your issue.
+	// The expression '*e' is a temporary created on the stack. So when this method returns, the memory
+	// is re-used (so as you noticed, other things often overwrite it).
 	Edge* e = new Edge(distance, destination);
 	edges.push_back(*e);
 }
