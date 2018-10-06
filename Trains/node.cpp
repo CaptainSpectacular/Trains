@@ -8,6 +8,9 @@ using std::find;
 using std::cout;
 using std::endl;
 
+
+// this should be in node.h which this file should include. also note that currently things like the type of edges
+// vary betweeen node.h and this file.
 class Node
 {
 public:
