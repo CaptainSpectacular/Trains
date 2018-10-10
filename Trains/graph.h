@@ -9,7 +9,7 @@ using std::string;
 class Graph
 {
 public:
-	vector<Node> nodes;
+	vector<Node*> nodes;
 
 	void new_route(string route);
 
