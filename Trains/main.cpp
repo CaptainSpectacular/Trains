@@ -19,7 +19,8 @@ int main()
 	cout << "Inserting routes..." << endl;
 	for (int i = 0; i < sizeof(routes) / sizeof(routes[0]); i++)
 	{
-		g->new_route(routes[i]);
+		Route* r = new Route(routes[i]);
+		g->new_route(r);
 		cout << "Route " << routes[i] << " created..." << endl;
 	}
 

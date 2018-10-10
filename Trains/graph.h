@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "route.h"
 class Node;
 
 using std::vector;
@@ -11,7 +12,7 @@ class Graph
 public:
 	vector<Node*> nodes;
 
-	void new_route(string route);
+	void new_route(Route* route);
 
 private:
 	Node* insert_node(char data);

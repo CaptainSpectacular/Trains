@@ -15,30 +15,26 @@ class Graph
 public:
 	vector<Node*> nodes;
 
-	void new_route(string route);
+	void new_route(Route* route);
 
 private:
 	Node* insert_node(char data);
 	Node* node_exists(char data);
 };
 
-void Graph::new_route(string route)
+void Graph::new_route(Route* route)
 {
-	char n1 = route[0];
-	char n2 = route[1];
-	int  dist = stoi(route.substr(2, route.length()));
-	
-	Node* origin = node_exists(n1); 
-	Node* destination = node_exists(n2);
+	Node* origin = node_exists(route->origin()); 
+	Node* destination = node_exists(route->destination());
 
 	if (!origin)
-		origin = insert_node(n1);
+		origin = insert_node(route->origin());
 
 	if (!destination)
-		destination = insert_node(n2);
+		destination = insert_node(route->destination());
 
-	if (!origin->has_edge(n2))
-		origin->insert_edge(dist, destination);
+	if (!origin->has_edge(route->destination()))
+		origin->insert_edge(route->distance(), destination);
 }
 
 Node* Graph::node_exists(char data)
