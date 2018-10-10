@@ -17,8 +17,7 @@ int main()
 	Graph *g = new Graph();
 
 	cout << "Inserting routes..." << endl;
-	
-	for (size_t i = 0; i < routes->size(); i++)
+	for (int i = 0; i < sizeof(routes) / sizeof(routes[0]); i++)
 	{
 		g->new_route(routes[i]);
 		cout << "Route " << routes[i] << " created..." << endl;
@@ -28,7 +27,7 @@ int main()
 
 	for (size_t i = 0; i < g->nodes.size(); i++)
 	{
-		g->nodes[i].print_edges();
+		g->nodes[i]->print_edges();
 	}
 
 
