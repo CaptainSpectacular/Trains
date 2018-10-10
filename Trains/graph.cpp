@@ -19,13 +19,13 @@ public:
 
 private:
 	Node* insert_node(char data);
-	Node* node_exists(char data);
+	Node* get_node(char data);
 };
 
 void Graph::new_route(Route* route)
 {
-	Node* origin = node_exists(route->origin()); 
-	Node* destination = node_exists(route->destination());
+	Node* origin = get_node(route->origin()); 
+	Node* destination = get_node(route->destination());
 
 	if (!origin)
 		origin = insert_node(route->origin());
@@ -37,7 +37,7 @@ void Graph::new_route(Route* route)
 		origin->insert_edge(route->distance(), destination);
 }
 
-Node* Graph::node_exists(char data)
+Node* Graph::get_node(char data)
 {
 	for (size_t i = 0; i < nodes.size(); i++)
 	{

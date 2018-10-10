@@ -16,5 +16,5 @@ public:
 
 private:
 	Node* insert_node(char data);
-	Node* node_exists(char data);
+	Node* get_node(char data);
 };
