@@ -27,9 +27,6 @@ Node::Node(char data)
 
 void Node::insert_edge(int distance, Node* destination)
 {
-	// Something here must be bad design. As edges get added,
-	// it seems old edges get corrupted as seen when they are
-	// printed out.
 	Edge* e = new Edge(distance, destination);
 	edges.push_back(e);
 }
