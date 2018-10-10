@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include "node.h"
+#include "route.h"
 
 using std::vector;
 using std::string;
