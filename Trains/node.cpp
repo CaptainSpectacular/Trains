@@ -8,6 +8,9 @@ using std::find;
 using std::cout;
 using std::endl;
 
+
+// this should be in node.h which this file should include. also note that currently things like the type of edges
+// vary betweeen node.h and this file.
 class Node
 {
 public:
@@ -30,6 +33,10 @@ void Node::insert_edge(int distance, Node* destination)
 	// Something here must be bad design. As edges get added,
 	// it seems old edges get corrupted as seen when they are
 	// printed out.
+	
+	// I would do edges.push_back(e) and make edges a vector<Edge *>. This should solve your issue.
+	// The expression '*e' is a temporary created on the stack. So when this method returns, the memory
+	// is re-used (so as you noticed, other things often overwrite it).
 	Edge* e = new Edge(distance, destination);
 	edges.push_back(e);
 }
