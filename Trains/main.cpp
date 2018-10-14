@@ -1,8 +1,11 @@
 #include <iostream>
+#include <string>
 #include "edge.h"
 #include "node.h"
 #include "graph.h"
+#include "route_maker.h"
 
+using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -10,32 +13,22 @@ using std::endl;
 int main()
 {
 	Graph* graph = new Graph();
-	Node* n1 = new Node('A');
-	Node* n2 = new Node('B');
-	Node* n3 = new Node('C');
-	Node* n4 = new Node('D');
-	Node* n5 = new Node('E');
-	
-	graph->insert_node(n1);
-	graph->insert_node(n2);
-	graph->insert_node(n3);
-	graph->insert_node(n4);
-	graph->insert_node(n5);
-	
+	RouteMaker* route_maker = new RouteMaker(graph);
+	string routes[9] = {"AB5", "BC4", "CD8", "DC8", "DE6", "AD5", "CE2", "EB3", "AE7" };
+	for (int i = 0; i < 9; i++)
+		route_maker->insert_route(routes[i]);
+
 	size_t size = graph->nodes.size();
 
 	cout << "Total nodes: " << size << endl;
-	cout << "Graph nodes: " << endl;
+	cout << "Routes: " << endl;
 
 	for (size_t i = 0; i < size; i++)
-		cout << graph->nodes[i]->data << endl;
-
-	cout << "The beginning" << endl;
-
-	cout << "get_node tests" << endl;
-	cout << "get_node('E');" << endl;
-	Node* x = graph->get_node('E');
-	cout << x << endl;
+	{
+		cout << "nodes[" << graph->nodes[i]->data << "]: ";
+		graph->nodes[i]->print_edges();
+		cout << endl;
+	}
 
 	cin.get();
 }
