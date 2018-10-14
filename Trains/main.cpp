@@ -9,7 +9,6 @@ using std::endl;
 
 int main()
 {
-	// Iteration 0 setup.
 	Graph* graph = new Graph();
 	Node* n1 = new Node('A');
 	Node* n2 = new Node('B');
@@ -24,12 +23,19 @@ int main()
 	graph->insert_node(n5);
 	
 	size_t size = graph->nodes.size();
+
 	cout << "Total nodes: " << size << endl;
 	cout << "Graph nodes: " << endl;
+
 	for (size_t i = 0; i < size; i++)
 		cout << graph->nodes[i]->data << endl;
 
 	cout << "The beginning" << endl;
+
+	cout << "get_node tests" << endl;
+	cout << "get_node('E');" << endl;
+	Node* x = graph->get_node('E');
+	cout << x << endl;
 
 	cin.get();
 }

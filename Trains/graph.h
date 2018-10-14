@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-class Node;
+#include "node.h"
 
 using std::vector;
 
@@ -10,4 +10,5 @@ public:
 	vector<Node*> nodes;
 
 	void insert_node(Node* node);
+	Node* get_node(char data);
 };
