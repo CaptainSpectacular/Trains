@@ -6,12 +6,12 @@ using std::string;
 
 class RouteMaker
 {
-	Graph* graph;
 public:
-
 	RouteMaker(Graph* graph);
 	void insert_route(string route);
 
 private:
+	Graph* graph;
+
 	Node* check_or_create(char data);
 };
