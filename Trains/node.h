@@ -16,4 +16,5 @@ public:
 	Node(char data);
 	void print_edges();
 	void insert_edge(Edge* destination);
+	Edge* get_edge(char data);
 };

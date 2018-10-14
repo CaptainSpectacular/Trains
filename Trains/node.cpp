@@ -16,3 +16,11 @@ void Node::insert_edge(Edge* edge)
 {
 	edges.push_back(edge);
 }
+
+Edge* Node::get_edge(char data)
+{
+	for (size_t i = 0; i < edges.size(); i++)
+		if (edges[i]->destination->data == data) return (edges[i]);
+	
+	return nullptr;
+}
