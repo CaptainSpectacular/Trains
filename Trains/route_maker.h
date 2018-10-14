@@ -11,5 +11,7 @@ public:
 
 	RouteMaker(Graph* graph);
 	void insert_route(string route);
+
+private:
 	Node* check_or_create(char data);
 };
