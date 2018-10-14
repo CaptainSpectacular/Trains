@@ -33,6 +33,9 @@
     <ClCompile Include="route.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="graph_analyzer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="node.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="route.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_analyzer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
