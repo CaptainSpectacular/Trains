@@ -17,11 +17,11 @@ int main()
 	Node* n4 = new Node('D');
 	Node* n5 = new Node('E');
 	
-	graph->nodes.push_back(n1);
-	graph->nodes.push_back(n2);
-	graph->nodes.push_back(n3);
-	graph->nodes.push_back(n4);
-	graph->nodes.push_back(n5);
+	graph->insert_node(n1);
+	graph->insert_node(n2);
+	graph->insert_node(n3);
+	graph->insert_node(n4);
+	graph->insert_node(n5);
 	
 	size_t size = graph->nodes.size();
 	cout << "Total nodes: " << size << endl;
