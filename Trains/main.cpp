@@ -5,6 +5,7 @@
 #include "graph.h"
 #include "route_maker.h"
 #include "route.h"
+#include "graph_analyzer.h"
 
 using std::string;
 using std::cout;
@@ -34,5 +35,12 @@ int main()
 		cout << endl;
 	}
 
+	GraphAnalyzer* ga = new GraphAnalyzer(graph);
+	cout << "Distance Calculations" << endl;
+	cout << "A-B-C: " << ga->calculate_distance("A-B-C") << endl;
+	cout << "A-D: " << ga->calculate_distance("A-D") << endl;
+	cout << "A-D-C: " << ga->calculate_distance("A-D-C") << endl;
+	cout << "A-E-B-C-D: " << ga->calculate_distance("A-E-B-C-D") << endl;
+	cout << "A-E-D: " << ga->calculate_distance("A-E-D") << endl;
 	cin.get();
 }
