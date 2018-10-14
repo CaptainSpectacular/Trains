@@ -4,6 +4,7 @@
 #include "node.h"
 #include "graph.h"
 #include "route_maker.h"
+#include "route.h"
 
 using std::string;
 using std::cout;
@@ -16,7 +17,10 @@ int main()
 	RouteMaker* route_maker = new RouteMaker(graph);
 	string routes[9] = {"AB5", "BC4", "CD8", "DC8", "DE6", "AD5", "CE2", "EB3", "AE7" };
 	for (int i = 0; i < 9; i++)
-		route_maker->insert_route(routes[i]);
+	{
+		Route* route = new Route(routes[i]);
+		route_maker->insert_route(route);
+	}
 
 	size_t size = graph->nodes.size();
 

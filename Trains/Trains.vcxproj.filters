@@ -30,6 +30,9 @@
     <ClCompile Include="route_maker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="route.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="node.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="route_maker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

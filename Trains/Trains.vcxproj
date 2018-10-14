@@ -23,12 +23,14 @@
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="node.cpp" />
+    <ClCompile Include="route.cpp" />
     <ClCompile Include="route_maker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="edge.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="node.h" />
+    <ClInclude Include="route.h" />
     <ClInclude Include="route_maker.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
